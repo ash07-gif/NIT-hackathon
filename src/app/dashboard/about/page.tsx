@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Github, Send } from "lucide-react";
+import Link from "next/link";
 
 export default function AboutPage() {
   return (
@@ -9,7 +10,9 @@ export default function AboutPage() {
             CityPulse is a civic engagement platform designed to empower residents and streamline municipal services. Report issues, track progress, and collaborate with your community to make your city a better place.
         </p>
         <div className="mt-10 flex justify-center gap-4">
-            <Button size="lg"><Send className="mr-2"/> Contact Us</Button>
+            <Link href="mailto:ashporob@gmail.com,redkerpriyam2@gmail.com,nilakshgaonkar@gmail.com">
+                <Button size="lg"><Send className="mr-2"/> Contact Us</Button>
+            </Link>
             <Button size="lg" variant="outline"><Github className="mr-2"/> View on GitHub</Button>
         </div>
         <div className="mt-16">
