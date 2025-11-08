@@ -13,7 +13,9 @@ export default function AboutPage() {
             <Link href="mailto:ashporob@gmail.com,redkerpriyam2@gmail.com,nilakshgaonkar@gmail.com">
                 <Button size="lg"><Send className="mr-2"/> Contact Us</Button>
             </Link>
-            <Button size="lg" variant="outline"><Github className="mr-2"/> View on GitHub</Button>
+            <Link href="https://github.com/priyamredker" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline"><Github className="mr-2"/> View on GitHub</Button>
+            </Link>
         </div>
         <div className="mt-16">
             <h2 className="text-2xl font-bold font-headline">Our Mission</h2>
