@@ -30,8 +30,10 @@ export default function CommunityPage() {
   const [issues, setIssues] = useState<Issue[]>(issuesData);
 
   useEffect(() => {
-    const results = issuesData.filter((issue) =>
-      issue.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const results = issuesData.filter(
+      (issue) =>
+        issue.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        issue.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setIssues(results);
   }, [searchTerm]);
@@ -53,7 +55,7 @@ export default function CommunityPage() {
         <div className="relative w-full md:w-1/3">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
-            placeholder="Search feed..."
+            placeholder="Search feed by title or category..."
             className="pl-10"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
