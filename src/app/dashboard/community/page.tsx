@@ -27,14 +27,24 @@ import Link from 'next/link';
 
 export default function CommunityPage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredIssues, setFilteredIssues] = useState<Issue[]>(issuesData);
+  const [issues, setIssues] = useState<Issue[]>(issuesData);
 
   useEffect(() => {
     const results = issuesData.filter((issue) =>
       issue.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setFilteredIssues(results);
+    setIssues(results);
   }, [searchTerm]);
+
+  const handleUpvote = (issueId: string) => {
+    setIssues((prevIssues) =>
+      prevIssues.map((issue) =>
+        issue.id === issueId
+          ? { ...issue, upvotes: issue.upvotes + 1 }
+          : issue
+      )
+    );
+  };
 
   return (
     <div className="space-y-8">
@@ -52,8 +62,8 @@ export default function CommunityPage() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-        {filteredIssues.length > 0 ? (
-          filteredIssues.map((issue) => (
+        {issues.length > 0 ? (
+          issues.map((issue) => (
             <Card key={issue.id} className="flex flex-col">
               <CardHeader className="flex flex-row items-center gap-4">
                 <Avatar>
@@ -101,7 +111,7 @@ export default function CommunityPage() {
                 </p>
               </CardContent>
               <CardFooter className="flex justify-between items-center">
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" onClick={() => handleUpvote(issue.id)}>
                   <ThumbsUp className="mr-2 h-4 w-4" />
                   {issue.upvotes} Upvotes
                 </Button>
