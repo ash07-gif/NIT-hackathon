@@ -9,10 +9,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Upload } from "lucide-react";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
+import Image from "next/image";
 
 export default function ReportIssuePage() {
     const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
+    const [photoPreview, setPhotoPreview] = useState<string | null>(null);
     const { toast } = useToast();
     const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
@@ -40,6 +42,18 @@ export default function ReportIssuePage() {
             });
         }
     };
+    
+    const handlePhotoChange = (event: ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files && event.target.files[0]) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPhotoPreview(reader.result as string);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
 
     return (
         <div className="max-w-3xl mx-auto space-y-8">
@@ -75,15 +89,29 @@ export default function ReportIssuePage() {
                     </div>
                     <div className="space-y-2">
                         <Label>Attach Photo(s)</Label>
-                        <div className="flex items-center justify-center w-full">
-                            <Label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-muted hover:bg-background">
-                                <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                    <Upload className="w-8 h-8 mb-4 text-muted-foreground" />
-                                    <p className="mb-2 text-sm text-muted-foreground"><span className="font-semibold">Click to upload</span> or drag and drop</p>
-                                </div>
-                                <Input id="dropzone-file" type="file" className="hidden" />
-                            </Label>
-                        </div> 
+                         {photoPreview ? (
+                            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+                                <Image src={photoPreview} alt="Uploaded preview" layout="fill" objectFit="cover" />
+                                <Button
+                                    variant="destructive"
+                                    size="sm"
+                                    className="absolute top-2 right-2"
+                                    onClick={() => setPhotoPreview(null)}
+                                >
+                                    Remove
+                                </Button>
+                            </div>
+                        ) : (
+                            <div className="flex items-center justify-center w-full">
+                                <Label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-muted hover:bg-background">
+                                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <Upload className="w-8 h-8 mb-4 text-muted-foreground" />
+                                        <p className="mb-2 text-sm text-muted-foreground"><span className="font-semibold">Click to upload</span> or drag and drop</p>
+                                    </div>
+                                    <Input id="dropzone-file" type="file" className="hidden" accept="image/*" onChange={handlePhotoChange} />
+                                </Label>
+                            </div>
+                        )}
                     </div>
                      <div className="space-y-4">
                         <div className="flex items-center justify-between">
