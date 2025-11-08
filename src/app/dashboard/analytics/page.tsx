@@ -54,7 +54,7 @@ export default function AnalyticsPage() {
         return Object.entries(counts).map(([name, value]) => ({
             name: name as IssueCategory,
             value,
-            fill: `var(--color-${name.toLowerCase()})`
+            fill: categoryChartConfig[name as IssueCategory].color
         }));
     }, []);
 
