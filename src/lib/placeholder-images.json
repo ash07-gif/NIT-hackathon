@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "pothole",
+      "description": "A large pothole on a city street.",
+      "imageUrl": "https://images.unsplash.com/photo-1676468042194-7cc2d69684d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cG90aG9sZSUyMHJvYWR8ZW58MHx8fHwxNzYyNTIxMTExfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pothole road"
+    },
+    {
+      "id": "streetlight",
+      "description": "A broken streetlight at night.",
+      "imageUrl": "https://images.unsplash.com/photo-1685285266693-7bd966073b62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdHJlZXRsaWdodCUyMGRhcmt8ZW58MHx8fHwxNzYyNjIwODcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "streetlight dark"
+    },
+    {
+      "id": "pipe",
+      "description": "A broken water pipe leaking water.",
+      "imageUrl": "https://images.unsplash.com/photo-1495774539583-885e02cca8c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3YXRlciUyMGxlYWt8ZW58MHx8fHwxNzYyNTUyMzA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water leak"
+    },
+    {
+      "id": "trash",
+      "description": "Overflowing trash can in a park.",
+      "imageUrl": "https://images.unsplash.com/photo-1722695551291-266b6fa6e04f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0cmFzaCUyMHBhcmt8ZW58MHx8fHwxNzYyNjIwODcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "trash park"
+    },
+    {
+      "id": "tree",
+      "description": "A fallen tree blocking a path.",
+      "imageUrl": "https://images.unsplash.com/photo-1520052600632-67420194a58f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmFsbGVuJTIwdHJlZXxlbnwwfHx8fDE3NjI1ODYyMDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fallen tree"
+    }
+  ]
 }
