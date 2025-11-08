@@ -24,8 +24,16 @@ export function ResidentDashboard() {
                 <CardTitle className="flex items-center gap-2"><Map className="text-primary"/> Interactive Map View</CardTitle>
             </CardHeader>
             <CardContent>
-                <div className="w-full h-96 bg-muted rounded-lg flex items-center justify-center">
-                   <p className="text-muted-foreground">Map placeholder - requires Google Maps API key</p>
+                <div className="w-full h-96 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
+                   <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d492359.733159442!2d73.73305415661619!3d15.350747197171072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba106336b741%3A0xeaf887ff62d14b25!2sGoa!5e0!3m2!1sen!2sin!4v1677582914782!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
             </CardContent>
           </Card>
