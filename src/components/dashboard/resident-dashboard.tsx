@@ -83,7 +83,7 @@ export function ResidentDashboard() {
                 </div>
                 <Select value={statusFilter} onValueChange={setStatusFilter}>
                     <SelectTrigger className="w-full md:w-[180px]">
-                    <SelectValue placeholder="Filter by status" />
+                    <SelectValue placeholder="Status" />
                     </SelectTrigger>
                     <SelectContent>
                     <SelectItem value="all">All Statuses</SelectItem>
