@@ -1,5 +1,4 @@
 
-App link : https://citypulse-mocha.vercel.app/
 
 # CityPulse: Civic Engagement News Reporting Platform
 
